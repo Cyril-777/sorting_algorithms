@@ -7,14 +7,16 @@
  */
 void swap_nodes(listint_t *node1, listint_t *node2)
 {
+	listint_t *temp;
+
+	temp = node1->prev;
 	node1->prev->next = node2;
 	node2->prev->next = node1;
 
 	node1->next->prev = node2;
 	node2->next->prev = node1;
 
-	listint_t *temp = node1->prev;
-
+	temp = node1->prev;
 	node1->prev = node2->prev;
 	node2->prev = temp;
 
@@ -22,7 +24,7 @@ void swap_nodes(listint_t *node1, listint_t *node2)
 	node1->next = node2->next;
 	node2->next = temp;
 
-	print_list(*list);
+	print_list(*node1);
 }
 
 /**
